@@ -55,3 +55,9 @@ p{
   color:#555;
   font-size:16pt;
 }
+input:invalid{
+  border: 5px dashed red;
+}
+input valid{
+  border: 1px solid blue;
+}
