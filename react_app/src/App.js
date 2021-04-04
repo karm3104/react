@@ -1,36 +1,26 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import './App.css'
 
-let data = {
-  title:"React-Context",
-  message:"this is sample message."
-}
+function App() {
+  const [count, setCount] = useState(0)
+  const clickFunc = () =>{
+    setCount(count + 1)
+  }
 
-const SampleContext = React.createContext(data)
-
-class App extends Component {
-  render(){
-    return<div>
-      <h1 className ="bg-primary text-white display-4">
-        React
-      </h1>
+  return(
+    <div>
+      <h1 className = "bg-primary text-white display-4">React</h1>
       <div className = "container">
-      <Title />
-      <Message />
+        <h4 className = "my-3">Hooks sample</h4>
+        <div className = "alert alert-primary text-center">
+          <p className = "h5">click:{count}times!</p>
+          <div><button className = "btn btn-primary" onClick = {clickFunc}>
+          Click me
+          </button></div>
+        </div>
       </div>
     </div>
-  }
+  )
 }
 
-class Title extends Component {
-  static contextType = SampleContext
-
-  render() {
-    return (
-      <div className = "card p-2 my-3">
-        <h2> {this.context.title} </h2>
-      </div>
-    )
-  }
-}
 export default App
